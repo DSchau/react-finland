@@ -3,10 +3,11 @@ import styled from '@emotion/styled'
 import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const Container = styled.ul`
-  margin: 1rem 0;
+  margin: 0.25rem 0;
 
   li:first-of-type {
     padding-left: 0;
+    margin-left: 0;
   }
 `
 
@@ -15,6 +16,7 @@ const Item = styled.li`
   list-style-type: none;
 
   padding: 0.25rem 0.5rem;
+  margin: 0.5rem;
 `
 
 const getIcon = href => {

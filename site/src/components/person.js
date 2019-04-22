@@ -16,9 +16,9 @@ const Image = styled.img`
   border-radius: 100%;
 `
 
-export default function Person({ name, image }) {
+export default function Person({ className, name, image }) {
   return (
-    <Container>
+    <Container className={className}>
       <Image src={image.url} />
       <Name>{name}</Name>
     </Container>
