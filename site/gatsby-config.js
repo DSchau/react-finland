@@ -1,10 +1,12 @@
+require('dotenv').config()
+
 module.exports = {
   __experimentalThemes: [
     {
       resolve: `@dschau/gatsby-theme-search`,
       options: {
-        appId: `1234`,
-        apiKey: `1234`,
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
         queries: [
           {
             query: `{

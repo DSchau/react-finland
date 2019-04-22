@@ -27,6 +27,7 @@
     "react-icons": "^3.6.1"
   },
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "limax": "^1.7.0",
     "prettier": "^1.16.4"
   },
