@@ -1,5 +1,5 @@
 {
-  "name": "@dschau/react-finland",
+  "name": "@dschau/react-finland-site",
   "private": true,
   "description": "The Gatsby powered version of React Finland 2019",
   "version": "0.1.0",
@@ -31,9 +31,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dschau/react-finland"
+    "url": "https://github.com/dschau/react-finland",
+    "directory": "site"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/dschau/react-finland"
   }
 }
