@@ -17,3 +17,12 @@ export const waveY = size => keyframes`
     background-position-y: 100%, ${size};
   }
 `
+
+export const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`

@@ -4,10 +4,6 @@ import styled from '@emotion/styled'
 
 import diff from 'date-fns/difference_in_seconds'
 
-const Remaining = styled.div`
-  display: flex;
-`
-
 class Countdown extends React.Component {
   constructor(props) {
     super(props);
@@ -54,19 +50,9 @@ class Countdown extends React.Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds } = this.getDifference(this.state.currentDate, this.props.toDate)
+    const { children, render = children } = this.props
 
-    return (
-      <div>
-        <h3>Till the event:</h3>
-        <Remaining>
-          <div>{days} day{days === 1 ? '' : 's'}</div>
-          <div>{hours}h</div>
-          <div>{minutes}m</div>
-          <div>{seconds}s</div>
-        </Remaining>
-      </div>
-    );
+    return render(this.getDifference(this.state.currentDate, this.props.toDate))
   }
 }
 

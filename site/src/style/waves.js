@@ -20,7 +20,7 @@ export default props => {
     animation: ${waveX(size)} 10s linear infinite, ${waveY(size)} 10s linear infinite;
     animation-play-state: paused;
     background-size: 100% 100%, ${size} ${size};
-    height: ${size};
+    min-height: ${size};
 
     :hover {
       animation-play-state: running;
