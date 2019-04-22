@@ -7,6 +7,7 @@ const Logo = styled.img`
   width: auto;
   height: auto;
   margin-right: 12px;
+  user-select: none;
 
   animation: ${spin} 10s linear infinite;
   animation-play-state: paused;

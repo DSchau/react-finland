@@ -1,63 +1,47 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import styled from '@emotion/styled'
 
 import diff from 'date-fns/difference_in_seconds'
 
-class Countdown extends React.Component {
-  constructor(props) {
-    super(props);
-    this.updateCountdown = this.updateCountdown.bind(this);
-    this.state = {
-      currentDate: Date.now(),
-    };
+const getDifference = (to, from) => {
+  let seconds = diff(new Date(from), new Date(to))
+
+  if (seconds <= 0) {
+    seconds = 0
   }
 
-  componentDidMount() {
-    this.interval = setInterval(this.updateCountdown, 1000);
-  }
+  // #poop 💩
+  const levels = [
+    Math.floor((seconds % 31536000) / 86400),
+    Math.floor(((seconds % 31536000) % 86400) / 3600),
+    Math.floor((((seconds % 31536000) % 86400) % 3600) / 60),
+    (((seconds % 31536000) % 86400) % 3600) % 60
+  ]
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
+  const units = ['days', 'hours', 'minutes', 'seconds']
 
-  updateCountdown() {
-    this.setState({ currentDate: Date.now() });
-  }
+  return levels
+    .reduce((merged, unit, index) => {
+      merged[units[index]] = unit
+      return merged
+    }, {})
+} 
 
-  getDifference(to, from) {
-    let seconds = diff(new Date(from), new Date(to))
+function Countdown({ children, render = children, toDate }) {
+  const [date, setDate] = useState(Date.now())
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDate(Date.now())
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [toDate])
 
-    if (seconds <= 0) {
-      seconds = 0
-    }
+  const difference = getDifference(date, toDate)
 
-    const levels = [
-      Math.floor((seconds % 31536000) / 86400),
-      Math.floor(((seconds % 31536000) % 86400) / 3600),
-      Math.floor((((seconds % 31536000) % 86400) % 3600) / 60),
-      (((seconds % 31536000) % 86400) % 3600) % 60
-    ]
-
-    const units = ['days', 'hours', 'minutes', 'seconds']
-
-    return levels
-      .reduce((merged, unit, index) => {
-        merged[units[index]] = unit
-        return merged
-      }, {})
-
-  }
-
-  render() {
-    const { children, render = children } = this.props
-
-    return render(this.getDifference(this.state.currentDate, this.props.toDate))
-  }
+  return render(difference)
 }
 
 Countdown.propTypes = {
-  initialDate: PropTypes.string,
   toDate: PropTypes.string,
 };
 

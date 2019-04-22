@@ -2,39 +2,79 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
+import Social from './social'
 import Talk from './talk'
+
 import { slugify } from '../util'
 
 const Container = styled.section`
-  
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+  margin: 2rem 0;
+  padding: 0.5rem;
+
+  @media only screen and (min-width: 768px) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
 `
 
 const Image = styled.img`
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
+
+  min-width: 100px;
+
+  border-radius: 100%;
+  margin: 1rem 0;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 0;
+    margin-right: 1rem;
+  }
 `
+
+const Title = styled.h2`
+  font-size: 36px;
+`
+
+const About = styled.p`
+  margin: 2rem 0;
+`
+
+const Subtitle = styled.h3`
+  font-size: 20px;
+  margin: 1rem 0;
+`
+
 
 export default function Speaker({ name, about, company, id, image, social, location, talks, workshops }) {
   return (
     <Container id={id}>
       <Image src={image.url} title={image.title} />
-      <h2 id={slugify(name)}>{name}</h2>
-      <h3>Talks</h3>
-      {
-        talks.map(talk => (
-          <Talk key={talk.title} {...talk} />
-        ))
-      }
-      {workshops.length > 0 && (
-        <>
-      <h3>Workshops</h3>
+      <div>
+        <Title id={slugify(name)}>{name}</Title>
+        <Social {...social} />
+        <About css={{ margin: `0.5rem 0` }}>{about}</About>
+        <Subtitle>Talks</Subtitle>
         {
-          workshops.map(workshop => (
-            <Talk key={workshop.title} {...workshop} />
+          talks.map(talk => (
+            <Talk key={talk.title} {...talk} />
           ))
         }
-        </>
-      )}
+        {workshops.length > 0 && (
+          <>
+        <Subtitle>Workshops</Subtitle>
+          {
+            workshops.map(workshop => (
+              <Talk key={workshop.title} {...workshop} />
+            ))
+          }
+          </>
+        )}
+      </div>
     </Container>
   )
 }

@@ -6,6 +6,11 @@ const Container = styled.div`
   text-align: center;
 `
 
+const Name = styled.h4`
+  margin-top: 0.25rem;
+  font-size: 20px;
+`
+
 const Image = styled.img`
   width: 100px;
   border-radius: 100%;
@@ -15,7 +20,7 @@ export default function Person({ name, image }) {
   return (
     <Container>
       <Image src={image.url} />
-      <h4>{name}</h4>
+      <Name>{name}</Name>
     </Container>
   )
 }

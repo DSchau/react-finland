@@ -6,10 +6,16 @@ const Container = styled.section`
   
 `
 
-export default function Talk({ type, title, description, keywords }) {
+const Title = styled.h4`
+  font-size: 24px;
+
+  margin: 1rem 0;
+`
+
+export default function Talk({ className, type, title, description, keywords }) {
   return (
-    <Container>
-      <h4>{title}</h4>
+    <Container className={className}>
+      <Title>{title}</Title>
       <p>{description}</p>
     </Container>
   )
