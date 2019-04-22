@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 import Person from '../components/person'
 import Sponsors from '../components/sponsors'
+import TitoWidget from '../components/tito'
 
 import { slugify } from '../util'
 
@@ -48,9 +49,7 @@ function Index({ data }) {
       <Group label="MCs" items={conference.mcs} />
       <Group label="Workshop Instructors" items={workshops} />
       <Group label="Speakers" items={speakers} />
-      <tito-widget event="react-finland/2019">
-        Loading. Patience my padawan!
-      </tito-widget>
+      <TitoWidget event="react-finland/2019" />
       <Sponsors />
     </>
   )
