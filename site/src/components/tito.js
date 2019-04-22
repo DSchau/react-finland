@@ -48,7 +48,6 @@ const Widget = styled.div`
   display: table !important;
   margin-left: initial !important;
   margin-top: 1.5% !important;
-  padding: $pu $pu2 !important;
   border: none !important;
   border-radius: 3rem !important;
 }
@@ -59,16 +58,12 @@ const Widget = styled.div`
 
 .tito-submit {
   padding: 0.5em 2em !important;
-  font-family: $fh;
+  font-family: Finlandica, sans-serif;
   font-size: 1em !important;
-  background-color: $color-accent !important;
   border: none !important;
   border-radius: 3rem !important;
   height: auto !important;
   width: auto !important;
-  &:hover {
-    background-color: lighten($color-accent, 10%) !important;
-  }
 }
 `
 
