@@ -5,6 +5,7 @@ import format from 'date-fns/format'
 
 import Countdown from './countdown'
 import Navigation from './navigation'
+import Search from './search'
 import Logo from './logo'
 
 import waves from '../style/waves'
@@ -71,6 +72,12 @@ const Link = styled.a`
   }
 `
 
+const SearchBar = styled(Search)`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`
+
 export default function Header({ isHome, title = `React Finland` }) {
   const { reactFinland: { conference }} = useStaticQuery(headerQuery)
 
@@ -79,6 +86,7 @@ export default function Header({ isHome, title = `React Finland` }) {
   return (
     <>
     <Container isHome={isHome} size={isHome && `25rem`}>
+      <SearchBar />
       <Navigation />
         <GatsbyLink to="/" css={{ color: `inherit`, textDecoration: `none`, textAlign: `center` }}>
           <Logo />

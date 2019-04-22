@@ -23,7 +23,8 @@
     "gatsby-plugin-layout": "^1.0.14",
     "gatsby-source-graphql": "^2.0.18",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.6.1"
   },
   "devDependencies": {
     "limax": "^1.7.0",

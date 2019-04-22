@@ -1,4 +1,27 @@
 module.exports = {
+  __experimentalThemes: [
+    {
+      resolve: `@dschau/gatsby-theme-search`,
+      options: {
+        appId: `1234`,
+        apiKey: `1234`,
+        queries: [
+          {
+            query: `{
+              reactFinland {
+                conference(id: "react-finland-2019") {
+                  speakers {
+                    name
+                  }
+                }
+              }
+            }`,
+            transformer: ({ data }) => console.log(data) || []
+          }
+        ]
+      }
+    }
+  ],
   plugins: [
     `gatsby-plugin-layout`,
     `gatsby-plugin-emotion`,
