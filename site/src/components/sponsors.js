@@ -5,15 +5,7 @@ import styled from '@emotion/styled'
 import Sponsor from './sponsor'
 
 const Container = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-row-gap: 0;
-
-  grid-auto-columns: 100%;
-  grid-template-columns: repeat(6, 1fr);
-
-  max-width: 768px;
-  margin: 2rem auto;
+  margin: 1rem 0;
 `
 
 const Heading = styled.h3`
@@ -24,9 +16,6 @@ const Heading = styled.h3`
 `
 
 const List = styled.div`
-  grid-column: 1 / span 6;
-  align-items: center;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

@@ -1,25 +1,77 @@
 import React from "react";
+import { graphql, Link } from 'gatsby'
+import styled from '@emotion/styled'
 
+import Person from '../components/person'
 import Sponsors from '../components/sponsors'
 
-// const intro = `
-// React Finland combines the Finnish React community with international flavor. The first of its kind in Finland, the event consists of a workshop day and two days of talks around the topic.
+import { slugify } from '../util'
 
-// In this single track event you will learn more about React and surrounding topics while meeting some of the leading talents of the community. In addition to enjoying the event, this is your chance to explore Finland.
+const Grid = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`
 
-// [Read seven reasons why you should come to React Finland 2019!](https://medium.com/react-finland/seven-reasons-to-visit-2019-d290d3417b67)
-// `;
+const Title = styled.h3`
+  font-size: 30px;
+`
 
-// const secondary = `
-// By the way, we proudly follow [Berlin code of conduct](http://berlincodeofconduct.org/).
+const Group = ({ label, items }) => (
+  <section>
+    <Title>{label}</Title>
+    <Grid>
+      
+    {items.map(item => (
+      <Link key={item.name} to={`/speakers#${slugify(item.name)}`}>
+      <Person {...item} />
+      </Link>
+    ))}
+    </Grid>
+  </section>
+)
 
-// [Join React Finland Slack to connect with other attendees!](https://join.slack.com/t/react-finland/shared_invite/enQtMzQ0NDM1ODczMjE2LTJlZmUxNDEyMThkYzYxNDI0OTQ5ZDc5MTQ0N2Q5OGMwZmM1ZmI0ZDlkMzgxNDk5YTEzMDJiOGY2MjFlNzAxODk)
-// `;
+const getSpeakersAndWorkshops = items => items.reduce((merged, item) => {
+  if (item.workshops && item.workshops.length > 0) {
+    merged.workshops.push(item)
+  } else {
+    merged.speakers.push(item)
+  }
+  return merged
+}, { speakers: [], workshops: [] })
 
-const Index = ({ location }) => (
-  <>
-    <Sponsors />
-  </>
-);
+function Index({ data }) {
+  const { reactFinland: { conference }} = data
+  const { speakers, workshops } = getSpeakersAndWorkshops(conference.speakers)
+  return (
+      <>
+      <Group label="MCs" items={conference.mcs} />
+      <Group label="Workshop Instructors" items={workshops} />
+      <Group label="Speakers" items={speakers} />
+      <tito-widget event="react-finland/2019">
+        Loading. Patience my padawan!
+      </tito-widget>
+      <Sponsors />
+    </>
+  )
+}
+
+export const indexQuery = graphql`
+  query IndexQuery {
+    reactFinland {
+      conference(id: "react-finland-2019") {
+        mcs {
+          ...SpeakerDetails
+        }
+        speakers {
+          ...SpeakerDetails
+          workshops {
+            type
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Index

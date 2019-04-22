@@ -36,6 +36,10 @@ const Input = styled.input`
   background-color: rgba(255, 2555, 255, 0.25);
   outline: none;
   transition: border .25s;
+
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.7)
+  }
 `
 
 const Button = styled.button`

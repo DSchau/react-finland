@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 import Talk from './talk'
+import { slugify } from '../util'
 
 const Container = styled.section`
   
@@ -13,11 +14,11 @@ const Image = styled.img`
   width: 150px;
 `
 
-export default function Speaker({ name, about, company, image, social, location, talks, workshops }) {
+export default function Speaker({ name, about, company, id, image, social, location, talks, workshops }) {
   return (
-    <Container>
+    <Container id={id}>
       <Image src={image.url} title={image.title} />
-      {name}
+      <h2 id={slugify(name)}>{name}</h2>
       <h3>Talks</h3>
       {
         talks.map(talk => (

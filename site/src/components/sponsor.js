@@ -3,9 +3,6 @@ import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 const Container = styled.figure`
-  flex: 0 1 auto;
-  margin: 0.5rem;
-
   :hover img {
     transform: scale(1.1);
   }
