@@ -1,4 +1,7 @@
 require('dotenv').config()
+const path = require('path')
+
+const contentDirectory = path.join(process.cwd(), 'blog')
 
 module.exports = {
   siteMetadata: {
@@ -18,6 +21,14 @@ module.exports = {
     {
       resolve: `@dschau/gatsby-theme-navigation`,
       options: {}
+    },
+    {
+      resolve: `@dschau/gatsby-theme-blog`,
+      options: {
+        adapter: `md`,
+        root: process.cwd(),
+        contentDirectory
+      }
     },
     {
       resolve: `@dschau/gatsby-theme-search`,
@@ -42,6 +53,21 @@ module.exports = {
     }
   ],
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: contentDirectory,
+        name: `blogContent`
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+
+        ]
+      }
+    },
     `gatsby-plugin-layout`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-tito`,

@@ -1,0 +1,18 @@
+{
+  "name": "@dschau/gatsby-theme-blog",
+  "version": "0.0.0",
+  "dependencies": {
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
+    "gatsby-source-filesystem": "^2.0.29",
+    "gatsby-transformer-remark": "^2.3.8",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "build": "echo \"Nothing to build... yet!\""
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.9"
+  }
+}
