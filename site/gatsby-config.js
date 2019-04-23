@@ -1,7 +1,24 @@
 require('dotenv').config()
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://react-finland-gatsby.netlify.com`,
+    navigation: [
+      {
+        label: `Schedule`,
+        path: `/schedule`
+      },
+      {
+        label: `Speakers`,
+        path: `/speakers`
+      }
+    ]
+  },
   __experimentalThemes: [
+    {
+      resolve: `@dschau/gatsby-theme-navigation`,
+      options: {}
+    },
     {
       resolve: `@dschau/gatsby-theme-search`,
       options: {

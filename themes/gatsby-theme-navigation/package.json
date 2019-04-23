@@ -1,0 +1,17 @@
+{
+  "name": "@dschau/gatsby-theme-navigation",
+  "version": "0.0.0",
+  "dependencies": {
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
+    "gatsby-transformer-yaml": "^2.1.11",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "build": "echo \"Nothing to build... yet!\""
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.9"
+  }
+}

@@ -1,10 +1,9 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 
 import Schedule from '../components/schedule'
 
-export default function ScheudlePage({ data }) {
+export default function SchedulePage({ data }) {
   return (
     <>
       {

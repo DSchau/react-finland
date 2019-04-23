@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+// import Breadcrumbs from '@dschau/gatsby-theme-navigation/components/breadcrumbs'
 
 import Subscribe from './subscribe-form'
 import waves from '../style/waves'
@@ -32,6 +33,7 @@ export default function Footer() {
         <Subscribe />
       </Waves>
       <Links>
+        {/* <Breadcrumbs /> */}
       </Links>
     </Container>
   )
