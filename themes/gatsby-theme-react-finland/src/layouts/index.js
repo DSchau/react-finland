@@ -9,6 +9,7 @@ import Reset from '../components/reset'
 const Children = styled.main`
   max-width: 900px;
   margin: 0 auto;
+  padding: 0.5rem 1rem;
 `
 
 const titlesLookup = {

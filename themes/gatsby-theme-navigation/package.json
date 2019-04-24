@@ -1,5 +1,5 @@
 {
-  "name": "@dschau/gatsby-theme-navigation",
+  "name": "gatsby-theme-navigation",
   "version": "0.0.1-alpha.1",
   "dependencies": {
     "gatsby-plugin-compile-es6-packages": "^1.1.0",

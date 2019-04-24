@@ -120,7 +120,7 @@ export default function Header({ isHome, title = `React Finland` }) {
         )}
         
     </Container>
-    <LinkContainer><Link href="#tickets">Buy tickets</Link></LinkContainer>
+    {isHome && <LinkContainer><Link href="#tickets">Buy tickets</Link></LinkContainer>}
     </>
   )
 }

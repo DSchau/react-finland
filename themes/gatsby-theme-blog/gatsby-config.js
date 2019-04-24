@@ -4,7 +4,7 @@ const yup = require('yup')
 const { sourceInstanceName } = require('./constants')
 
 const pluginOptions = yup.object().shape({
-  adapter: yup.string().oneOf(['mdx', 'markdown', 'md']).default(() => `md`).required(),
+  adapter: yup.string().default('md').oneOf(['mdx', 'markdown', 'md']).required(),
   root: yup.string(),
   contentDirectory: yup.string().required()
 })

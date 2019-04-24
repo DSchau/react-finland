@@ -1,7 +1,28 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
-export default function BlogPage() {
+import BlogPostListing from '../components/blog-post-listing'
+
+export default function BlogPage({ data }) {
   return (
-    <h1>This is the blog page</h1>
+    <React.Fragment>
+      <BlogPostListing posts={data.allBlogPost.nodes} />
+    </React.Fragment>
   )
 }
+
+export const blogPostQuery = graphql`
+  query GetAllBlogPosts {
+    allBlogPost {
+      nodes {
+        title
+        slug
+
+        body {
+          excerpt
+          html
+        }
+      }
+    }
+  }
+`
