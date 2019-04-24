@@ -1,6 +1,9 @@
 const path = require('path')
 
 module.exports = {
+  siteMetadata: {
+    title: `React Nebraska`
+  },
   __experimentalThemes: [
     {
       resolve: `gatsby-theme-react-finland`,

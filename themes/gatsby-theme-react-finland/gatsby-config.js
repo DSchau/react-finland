@@ -4,6 +4,7 @@ module.exports = function gatsbyConfig() {
   return {
     siteMetadata: {
       siteUrl: `https://react-finland-gatsby.netlify.com`,
+      title: `React Finland`,
       navigation: [
         {
           label: `Schedule`,

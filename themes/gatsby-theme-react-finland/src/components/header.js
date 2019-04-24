@@ -78,8 +78,8 @@ const SearchBar = styled(Search)`
   right: 1rem;
 `
 
-export default function Header({ isHome, title = `React Finland` }) {
-  const { reactFinland: { conference }} = useStaticQuery(headerQuery)
+export default function Header({ isHome }) {
+  const { site: { siteMetadata }, reactFinland: { conference }} = useStaticQuery(headerQuery)
 
   const location = conference.locations[0]
 
@@ -91,7 +91,7 @@ export default function Header({ isHome, title = `React Finland` }) {
         <GatsbyLink to="/" css={{ color: `inherit`, textDecoration: `none`, textAlign: `center` }}>
           <Logo />
         </GatsbyLink>
-        <Title>{title}</Title>
+        <Title>{siteMetadata.title}</Title>
         {isHome && (
           <>
         <Subtitle css={{ backgroundColor: `#002fa9`, color: `#f3f7f9`, padding: `1rem`, fontStyle: `italic` }}>{conference.slogan}</Subtitle>
@@ -126,7 +126,13 @@ export default function Header({ isHome, title = `React Finland` }) {
 }
 
 export const headerQuery = graphql`
-{
+  {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
   reactFinland {
     conference(id:"react-finland-2019") {
       slogan
