@@ -1,0 +1,23 @@
+{
+  "name": "@dschau/gatsby-theme-blog-finland",
+  "version": "0.0.0",
+  "dependencies": {
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
+    "gatsby-plugin-page-creator": "^2.0.12",
+    "gatsby-remark-autolink-headers": "^2.0.16",
+    "gatsby-remark-prismjs": "^3.2.8",
+    "gatsby-remark-smartypants": "^2.0.9",
+    "gatsby-source-filesystem": "^2.0.32",
+    "gatsby-transformer-remark": "^2.3.11",
+    "prismjs": "^1.16.0",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "build": "echo \"Nothing to build... yet!\""
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.9"
+  }
+}

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import 'prismjs/themes/prism-okaidia.css'
+
 export default function BlogPost({ author, title, body }) {
   return (
     <React.Fragment>

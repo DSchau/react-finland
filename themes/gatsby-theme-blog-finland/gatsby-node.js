@@ -98,7 +98,7 @@ exports.createPages = async function createPages({ actions, graphql }) {
     throw errors
   }
 
-  const blogPostTemplate = require.resolve(`./templates/blog-post.js`)
+  const blogPostTemplate = require.resolve(`./src/templates/blog-post.js`)
 
   data.allBlogPost.nodes.map(node => {
     actions.createPage({

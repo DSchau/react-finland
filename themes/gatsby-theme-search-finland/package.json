@@ -1,5 +1,5 @@
 {
-  "name": "@dschau/gatsby-theme-search",
+  "name": "@dschau/gatsby-theme-search-finland",
   "version": "0.0.0",
   "dependencies": {
     "gatsby-plugin-algolia": "^0.3.0",

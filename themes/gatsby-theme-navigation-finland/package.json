@@ -1,9 +1,9 @@
 {
-  "name": "@dschau/gatsby-theme-navigation",
+  "name": "@dschau/gatsby-theme-navigation-finland",
   "version": "0.0.0",
   "dependencies": {
     "gatsby-plugin-compile-es6-packages": "^1.1.0",
-    "gatsby-transformer-yaml": "^2.1.11",
+    "gatsby-transformer-yaml": "^2.1.12",
     "yup": "^0.27.0"
   },
   "scripts": {

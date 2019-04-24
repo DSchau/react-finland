@@ -4,8 +4,12 @@ title: Hello World
 date: 2019-04-22
 ---
 
-# Heloo World
+# Hello React Finland!
 
-sup sup sup
+```jsx
+import React from 'react'
 
-## Test test
+export default function OhShitWaddup() {
+  return <h1>It's dat boi</h1>
+}
+```

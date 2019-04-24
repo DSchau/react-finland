@@ -45,8 +45,7 @@ module.exports = {
                   }
                 }
               }
-            }`,
-            transformer: ({ data }) => console.log(data) || []
+            }`
           }
         ]
       }
@@ -64,7 +63,9 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-autolink-headers`
         ]
       }
     },

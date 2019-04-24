@@ -1,4 +1,4 @@
-const fs = require('fs')
+const path = require('path')
 const yup = require('yup')
 
 const { sourceInstanceName } = require('./constants')
@@ -16,7 +16,9 @@ const adapters = {
         resolve: `gatsby-transformer-remark`,
         options: {
           plugins: [
-
+            `gatsby-remark-prismjs`,
+            `gatsby-remark-smartypants`,
+            `gatsby-remark-autolink-headers`
           ]
         }
       }
@@ -42,7 +44,7 @@ module.exports = async function gatsbyConfig(opts) {
 
   return {
     siteMetadata: {},
-    plugins: [
+    plugins: adapter().concat([
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -57,8 +59,13 @@ module.exports = async function gatsbyConfig(opts) {
             '@dschau/gatsby-theme-blog'
           ]
         }
-      }
-    ]
-      .concat(adapter())
+      },
+      {
+        resolve: `gatsby-plugin-page-creator`,
+        options: {
+          path: path.join(__dirname, 'src', 'pages'),
+        },
+      },
+    ])
   }
 }

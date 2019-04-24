@@ -14,7 +14,6 @@ export const blogPostQuery = graphql`
     }) {
       title
       author
-
       body {
         html
       }
