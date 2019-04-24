@@ -1,6 +1,6 @@
 {
   "name": "@dschau/gatsby-theme-search-finland",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "dependencies": {
     "gatsby-plugin-algolia": "^0.3.0",
     "gatsby-plugin-compile-es6-packages": "^1.1.0",
