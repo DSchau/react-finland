@@ -4,7 +4,7 @@ const yup = require('yup')
 const { sourceInstanceName } = require('./constants')
 
 const pluginOptions = yup.object().shape({
-  adapter: yup.string().oneOf(['mdx', 'markdown', 'md']).required(),
+  adapter: yup.string().oneOf(['mdx', 'markdown', 'md']).default(() => `md`).required(),
   root: yup.string(),
   contentDirectory: yup.string().required()
 })
@@ -37,14 +37,14 @@ const adapters = {
   }
 }
 
-module.exports = async function gatsbyConfig(opts) {
-  const { adapter: blogAdapter, contentDirectory } = await pluginOptions.validate(opts)
+module.exports = function gatsbyConfig(opts) {
+  const { adapter: blogAdapter, contentDirectory } = pluginOptions.validateSync(opts)
 
   const adapter = adapters[blogAdapter]
 
   return {
     siteMetadata: {},
-    plugins: adapter().concat([
+    plugins: [
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -66,6 +66,7 @@ module.exports = async function gatsbyConfig(opts) {
           path: path.join(__dirname, 'src', 'pages'),
         },
       },
-    ])
+    ]
+      .concat(adapter())
   }
 }

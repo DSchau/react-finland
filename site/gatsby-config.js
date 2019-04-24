@@ -52,23 +52,6 @@ module.exports = {
     }
   ],
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: contentDirectory,
-        name: `blogContent`
-      }
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-smartypants`,
-          `gatsby-remark-autolink-headers`
-        ]
-      }
-    },
     `gatsby-plugin-layout`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-tito`,
