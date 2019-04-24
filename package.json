@@ -17,5 +17,8 @@
   },
   "scripts": {
     "lerna": "lerna"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
