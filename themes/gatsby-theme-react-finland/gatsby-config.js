@@ -4,17 +4,7 @@ module.exports = function gatsbyConfig() {
   return {
     siteMetadata: {
       siteUrl: `https://react-finland-gatsby.netlify.com`,
-      title: `React Finland`,
-      navigation: [
-        {
-          label: `Schedule`,
-          path: `/schedule`
-        },
-        {
-          label: `Speakers`,
-          path: `/speakers`
-        }
-      ]
+      title: `React Finland`
     },
     plugins: [
       {

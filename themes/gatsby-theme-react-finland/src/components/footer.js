@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-// import Breadcrumbs from '@dschau/gatsby-theme-navigation/components/breadcrumbs'
 
 import Subscribe from './subscribe-form'
 import waves from '../style/waves'
@@ -23,17 +22,20 @@ const Waves = styled.div`
 `
 
 const Links = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 12.5rem;
 `
 
-export default function Footer() {
+export default function Footer({ children }) {
   return (
     <Container>
       <Waves size={`10rem`}>
         <Subscribe />
       </Waves>
       <Links>
-        {/* <Breadcrumbs /> */}
+        {children}
       </Links>
     </Container>
   )

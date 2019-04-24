@@ -19,14 +19,21 @@ function Breadcrumbs({
           siteUrl
         }
       }
+
+      navigation: allSiteNavigation {
+        nodes {
+          label
+          path
+        }
+      }
     }
   `)
   return (
-    <ul className={className}>
+    <ul className={className} style={{ display: `flex`, alignItems: `center`, justifyContent: `center` }}>
       {
         data.navigation.nodes.map(node => (
-          <li key={node.path}>
-            <Link to={node.path}>{node.label}</Link>
+          <li key={node.path} style={{ display: `inline-block` }}>
+            <Link to={node.path} style={{ color: `white`, margin: `1rem`, padding: `0.5rem 1rem` }}>{node.label}</Link>
           </li>
         ))
       }
