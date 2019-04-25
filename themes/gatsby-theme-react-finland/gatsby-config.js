@@ -28,6 +28,13 @@ module.exports = function gatsbyConfig() {
         }
       },
       `gatsby-plugin-emotion`,
+      {
+        resolve: `gatsby-plugin-typography`,
+        options: {
+          omitGoogleFont: true,
+          pathToConfigModule: require.resolve(`./src/util/typography.js`)
+        }
+      },
       // `gatsby-plugin-tito`,
       {
         resolve: `gatsby-source-graphql`,
