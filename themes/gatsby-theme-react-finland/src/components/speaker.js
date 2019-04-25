@@ -1,11 +1,11 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import React from "react"
+import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
-import Social from './social'
-import Talk from './talk'
+import Social from "./social"
+import Talk from "./talk"
 
-import { slugify } from '../util'
+import { slugify } from "../util"
 
 const Container = styled.section`
   display: flex;
@@ -49,8 +49,17 @@ const Subtitle = styled.h3`
   margin: 1rem 0;
 `
 
-
-export default function Speaker({ name, about, company, id, image, social, location, talks, workshops }) {
+export default function Speaker({
+  name,
+  about,
+  company,
+  id,
+  image,
+  social,
+  location,
+  talks,
+  workshops,
+}) {
   return (
     <Container id={id}>
       <Image src={image.url} title={image.title} />
@@ -59,19 +68,15 @@ export default function Speaker({ name, about, company, id, image, social, locat
         <Social {...social} />
         <About css={{ margin: `0.5rem 0` }}>{about}</About>
         <Subtitle>Talks</Subtitle>
-        {
-          talks.map(talk => (
-            <Talk key={talk.title} {...talk} />
-          ))
-        }
+        {talks.map(talk => (
+          <Talk key={talk.title} {...talk} />
+        ))}
         {workshops.length > 0 && (
           <>
-        <Subtitle>Workshops</Subtitle>
-          {
-            workshops.map(workshop => (
+            <Subtitle>Workshops</Subtitle>
+            {workshops.map(workshop => (
               <Talk key={workshop.title} {...workshop} />
-            ))
-          }
+            ))}
           </>
         )}
       </div>
@@ -92,7 +97,7 @@ export const speakerFragment = graphql`
       twitter
       github
       linkedin
-      homepage          
+      homepage
     }
     location {
       country {

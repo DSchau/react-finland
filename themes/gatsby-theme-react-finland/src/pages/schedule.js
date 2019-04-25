@@ -1,16 +1,14 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react"
+import { graphql } from "gatsby"
 
-import Schedule from '../components/schedule'
+import Schedule from "../components/schedule"
 
 export default function SchedulePage({ data }) {
   return (
     <>
-      {
-        data.reactFinland.conference.schedules.map(schedule => (
-          <Schedule key={schedule.day} {...schedule} />
-        ))
-      }
+      {data.reactFinland.conference.schedules.map(schedule => (
+        <Schedule key={schedule.day} {...schedule} />
+      ))}
     </>
   )
 }

@@ -1,9 +1,9 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
-import format from 'date-fns/format'
+import React from "react"
+import { graphql } from "gatsby"
+import styled from "@emotion/styled"
+import format from "date-fns/format"
 
-import Person from './person'
+import Person from "./person"
 
 const Container = styled.section`
   margin: 2rem 0;
@@ -13,9 +13,7 @@ const Title = styled.h2`
   font-size: 36px;
 `
 
-const Intervals = styled.dl`
-
-`
+const Intervals = styled.dl``
 
 const PersonSchedule = styled(Person)`
   display: flex;
@@ -32,10 +30,9 @@ const PersonSchedule = styled(Person)`
 export default function Schedule({ day, description, intervals }) {
   return (
     <Container>
-      <Title>{`${format(day, 'DD.MM')} - ${description}`}</Title>
+      <Title>{`${format(day, "DD.MM")} - ${description}`}</Title>
       <Intervals>
-      {
-        intervals.map(({ begin, end, title, sessions }, index) => (
+        {intervals.map(({ begin, end, title, sessions }, index) => (
           <React.Fragment key={`${day}-${title}`}>
             <dt key={`dt-${index}`}>
               {begin}–{end}
@@ -45,15 +42,14 @@ export default function Schedule({ day, description, intervals }) {
               {sessions.map(session => (
                 <React.Fragment key={session.title}>
                   {session.title}
-                  {
-                    (session.people || []).map(person => <PersonSchedule {...person} />)
-                  }
+                  {(session.people || []).map(person => (
+                    <PersonSchedule {...person} />
+                  ))}
                 </React.Fragment>
               ))}
             </dd>
           </React.Fragment>
-        ))
-      }
+        ))}
       </Intervals>
     </Container>
   )

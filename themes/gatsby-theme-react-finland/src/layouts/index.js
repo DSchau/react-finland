@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from '@emotion/styled'
+import React from "react"
+import styled from "@emotion/styled"
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Fonts from '../components/fonts'
+import Header from "../components/header"
+import Footer from "../components/footer"
+import Fonts from "../components/fonts"
 
 const Children = styled.main`
   max-width: 900px;
@@ -12,10 +12,10 @@ const Children = styled.main`
 `
 
 const titlesLookup = {
-  speakers: `Speakers`
+  speakers: `Speakers`,
 }
 
-const normalize = parts => parts.split('/').find(part => part.length > 0)
+const normalize = parts => parts.split("/").find(part => part.length > 0)
 
 export default function Index({ children, location }) {
   const title = titlesLookup[normalize(location.pathname)] || `React Finland`

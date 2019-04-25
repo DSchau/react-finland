@@ -1,7 +1,7 @@
-import React from 'react'
-import { MdSearch } from 'react-icons/md'
+import React from "react"
+import { MdSearch } from "react-icons/md"
 
-import Searchbar from '@dschau/gatsby-theme-search/components/search-bar'
+import Searchbar from "@dschau/gatsby-theme-search/components/search-bar"
 
 export default function Search({ className }) {
   return (

@@ -1,8 +1,8 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import styled from "@emotion/styled"
 
-import Sponsor from './sponsor'
+import Sponsor from "./sponsor"
 
 const Container = styled.section`
   margin: 1rem 0;
@@ -33,7 +33,9 @@ const Group = ({ label, sponsors }) => (
 )
 
 export default function Sponsors({ includePartners = true }) {
-  const { reactFinland: { conference }} = useStaticQuery(sponsorsQuery)
+  const {
+    reactFinland: { conference },
+  } = useStaticQuery(sponsorsQuery)
   const { bronzeSponsors, silverSponsors, goldSponsors, partners } = conference
 
   return (

@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
+import React from "react"
+import styled from "@emotion/styled"
+import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
 
 const Container = styled.ul`
   margin: 0.25rem 0;
@@ -20,11 +20,11 @@ const Item = styled.li`
 `
 
 const getIcon = href => {
-  if (href.match('twitter')) {
+  if (href.match("twitter")) {
     return FaTwitter
-  } else if (href.match('github')) {
+  } else if (href.match("github")) {
     return FaGithub
-  } else if (href.match('linkedin')) {
+  } else if (href.match("linkedin")) {
     return FaLinkedin
   }
 
@@ -36,18 +36,19 @@ export default function Social({ twitter, github, linkedin, homepage }) {
 
   return (
     <Container>
-      {
-        all.map(href => {
-          const Icon = getIcon(href)
-          return (
-            <Item key={href}>
-              <a css={{ fontSize: 18, color: `#002fa9`, textDecoration: `none` }} href={href}>
-                {Icon ? <Icon /> : href}
-              </a>
-            </Item>
-          )
-        })
-      }
+      {all.map(href => {
+        const Icon = getIcon(href)
+        return (
+          <Item key={href}>
+            <a
+              css={{ fontSize: 18, color: `#002fa9`, textDecoration: `none` }}
+              href={href}
+            >
+              {Icon ? <Icon /> : href}
+            </a>
+          </Item>
+        )
+      })}
     </Container>
   )
 }

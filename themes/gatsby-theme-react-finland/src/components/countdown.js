@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 
-import diff from 'date-fns/difference_in_seconds'
+import diff from "date-fns/difference_in_seconds"
 
 const getDifference = (to, from) => {
   let seconds = diff(new Date(from), new Date(to))
@@ -15,17 +15,16 @@ const getDifference = (to, from) => {
     Math.floor((seconds % 31536000) / 86400),
     Math.floor(((seconds % 31536000) % 86400) / 3600),
     Math.floor((((seconds % 31536000) % 86400) % 3600) / 60),
-    (((seconds % 31536000) % 86400) % 3600) % 60
+    (((seconds % 31536000) % 86400) % 3600) % 60,
   ]
 
-  const units = ['days', 'hours', 'minutes', 'seconds']
+  const units = ["days", "hours", "minutes", "seconds"]
 
-  return levels
-    .reduce((merged, unit, index) => {
-      merged[units[index]] = unit
-      return merged
-    }, {})
-} 
+  return levels.reduce((merged, unit, index) => {
+    merged[units[index]] = unit
+    return merged
+  }, {})
+}
 
 function Countdown({ children, render = children, toDate }) {
   const [date, setDate] = useState(Date.now())
@@ -43,6 +42,6 @@ function Countdown({ children, render = children, toDate }) {
 
 Countdown.propTypes = {
   toDate: PropTypes.string,
-};
+}
 
-export default Countdown;
+export default Countdown

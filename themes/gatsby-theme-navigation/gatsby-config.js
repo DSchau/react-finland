@@ -1,19 +1,21 @@
-const fs = require('fs')
-const yup = require('yup')
+const fs = require('fs');
+const yup = require('yup');
 
 const pluginOptions = yup.object().shape({
-  contentDirectory: yup.string()
-})
+  contentDirectory: yup.string(),
+});
 
 module.exports = async function gatsbyConfig(opts) {
-  const { contentDirectory } = await pluginOptions.validate(opts)
+  const { contentDirectory } = await pluginOptions.validate(opts);
 
-  let plugins = []
+  let plugins = [];
 
   if (root && contentDirectory) {
-    const exists = fs.existsSync(contentDirectory)
+    const exists = fs.existsSync(contentDirectory);
     if (!exists) {
-      throw new Error(`You are using the contentDirectory option, which requires the path: ${contentDirectory} to exist`)
+      throw new Error(
+        `You are using the contentDirectory option, which requires the path: ${contentDirectory} to exist`
+      );
     }
 
     plugins = plugins.concat([
@@ -21,11 +23,11 @@ module.exports = async function gatsbyConfig(opts) {
         resolve: `gatsby-source-filesystem`,
         options: {
           path: contentDirectory,
-          name: `navigation`
-        }
+          name: `navigation`,
+        },
       },
-      `gatsby-transformer-yaml`
-    ])
+      `gatsby-transformer-yaml`,
+    ]);
   }
 
   return {
@@ -33,12 +35,9 @@ module.exports = async function gatsbyConfig(opts) {
       {
         resolve: `gatsby-plugin-compile-es6-packages`,
         options: {
-          modules: [
-            '@dschau/gatsby-theme-navigation'
-          ]
-        }
-      }
-    ]
-      .concat(plugins)
-  }
-}
+          modules: ['@dschau/gatsby-theme-navigation'],
+        },
+      },
+    ].concat(plugins),
+  };
+};

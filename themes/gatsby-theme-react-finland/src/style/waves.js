@@ -1,8 +1,8 @@
-import { css } from '@emotion/core'
+import { css } from "@emotion/core"
 
-import { waveX, waveY } from './animations'
+import { waveX, waveY } from "./animations"
 
-import waves from '../assets/img/headers/front.svg'
+import waves from "../assets/img/headers/front.svg"
 
 // it's 🌊, my dudes
 export default props => {
@@ -17,7 +17,9 @@ export default props => {
       url("${waves}");
 
 
-    animation: ${waveX(size)} 10s linear infinite, ${waveY(size)} 10s linear infinite;
+    animation: ${waveX(size)} 10s linear infinite, ${waveY(
+    size
+  )} 10s linear infinite;
     animation-play-state: paused;
     background-size: 100% 100%, ${size} ${size};
     min-height: ${size};

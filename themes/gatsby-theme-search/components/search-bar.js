@@ -1,23 +1,20 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function SearchBar({
-  children,
-  render = children
-}) {
-  const [toggled, setToggled] = useState(false)
+function SearchBar({ children, render = children }) {
+  const [toggled, setToggled] = useState(false);
   return (
     <>
       {render({
         onClick: () => setToggled(!toggled),
-        toggled
+        toggled,
       })}
     </>
-  )
+  );
 }
 
 SearchBar.propTypes = {
-  icon: PropTypes.node
-}
+  icon: PropTypes.node,
+};
 
-export default SearchBar
+export default SearchBar;

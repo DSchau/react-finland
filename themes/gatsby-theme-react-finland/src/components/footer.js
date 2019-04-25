@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from '@emotion/styled'
+import React from "react"
+import styled from "@emotion/styled"
 
-import Subscribe from './subscribe-form'
-import waves from '../style/waves'
+import Subscribe from "./subscribe-form"
+import waves from "../style/waves"
 
 const Container = styled.footer`
   margin: 0;
@@ -34,9 +34,7 @@ export default function Footer({ children }) {
       <Waves size={`10rem`}>
         <Subscribe />
       </Waves>
-      <Links>
-        {children}
-      </Links>
+      <Links>{children}</Links>
     </Container>
   )
 }

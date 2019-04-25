@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled"
 
-import { spin } from '../style'
-import logo from '../assets/img/logo.svg'
+import { spin } from "../style"
+import logo from "../assets/img/logo.svg"
 
 const Logo = styled.img`
   width: auto;
@@ -18,7 +18,7 @@ const Logo = styled.img`
 `
 
 Logo.defaultProps = {
-  src: logo
+  src: logo,
 }
 
 export default Logo

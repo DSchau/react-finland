@@ -1,6 +1,6 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import React from "react"
+import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
 const Container = styled.figure`
   :hover img {
@@ -13,13 +13,18 @@ const Image = styled.img`
   max-height: 100px;
   max-width: 250px;
 
-  transition: transform 0.2s ease-in-out
-  `
+  transition: transform 0.2s ease-in-out;
+`
 
 export default function Sponsor({ name, image, social }) {
   return (
     <Container>
-      <a href={social.homepage} target="_blank" rel="noopener noreferrer" title={name}>
+      <a
+        href={social.homepage}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={name}
+      >
         <Image src={image.url} />
       </a>
     </Container>

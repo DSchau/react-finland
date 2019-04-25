@@ -1,1 +1,5 @@
-export const slugify = path => path.toLowerCase().split(' ').join('-')
+export const slugify = path =>
+  path
+    .toLowerCase()
+    .split(" ")
+    .join("-")

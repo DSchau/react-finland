@@ -1,10 +1,8 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import React from "react"
+import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
-const Container = styled.section`
-  
-`
+const Container = styled.section``
 
 const Title = styled.h4`
   font-size: 24px;
@@ -12,7 +10,13 @@ const Title = styled.h4`
   margin: 1rem 0;
 `
 
-export default function Talk({ className, type, title, description, keywords }) {
+export default function Talk({
+  className,
+  type,
+  title,
+  description,
+  keywords,
+}) {
   return (
     <Container className={className}>
       <Title>{title}</Title>

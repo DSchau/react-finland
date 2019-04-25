@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 
 const Form = styled.form`
   margin: 1rem 0;
@@ -35,10 +35,10 @@ const Input = styled.input`
   padding: 0.5rem 1rem;
   background-color: rgba(255, 2555, 255, 0.25);
   outline: none;
-  transition: border .25s;
+  transition: border 0.25s;
 
   ::placeholder {
-    color: rgba(255, 255, 255, 0.7)
+    color: rgba(255, 255, 255, 0.7);
   }
 `
 
@@ -52,11 +52,13 @@ const Button = styled.button`
   border-bottom-right-radius: 0.5rem;
   outline: none;
   padding: 0.5rem 1rem;
-  transition: background .25s;
+  transition: background 0.25s;
 
-  ${props => props.disabled && css`
-    cursor: not-allowed;
-  `}
+  ${props =>
+    props.disabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `
 
 const Subscribe = ({
@@ -105,9 +107,7 @@ const Subscribe = ({
             type="submit"
             name="subscribe"
             id="mc-embedded-subscribe"
-            css={disabled && {
-
-            }}
+            css={disabled && {}}
             disabled={disabled}
           >
             Subscribe
@@ -115,10 +115,10 @@ const Subscribe = ({
         </Form>
       </Wrapper>
     </section>
-  );
-};
+  )
+}
 Subscribe.propTypes = {
   children: PropTypes.element,
-};
+}
 
-export default Subscribe;
+export default Subscribe
