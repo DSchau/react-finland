@@ -8,7 +8,7 @@ const Container = styled.section`
   margin: 1rem 0;
 `
 
-const Heading = styled.h3`
+const Heading = styled.h2`
   font-size: 24px;
   margin: 1rem 0.5rem;
 
@@ -23,7 +23,7 @@ const List = styled.div`
 
 const Group = ({ label, sponsors }) => (
   <Container>
-    <Heading>{label}</Heading>
+    <Heading as="h3">{label}</Heading>
     <List>
       {sponsors.map(sponsor => (
         <Sponsor key={sponsor.name} {...sponsor} />
@@ -40,6 +40,7 @@ export default function Sponsors({ includePartners = true }) {
 
   return (
     <>
+      <Heading>Sponsors</Heading>
       <Group label="🥇Gold Sponsors" sponsors={goldSponsors} />
       <Group label="🥈Silver Sponsors" sponsors={silverSponsors} />
       <Group label="🥉Bronze Sponsors" sponsors={bronzeSponsors} />

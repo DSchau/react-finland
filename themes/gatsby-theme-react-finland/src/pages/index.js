@@ -14,7 +14,7 @@ const Grid = styled.section`
   justify-content: space-evenly;
 `
 
-const Title = styled.h3`
+const Title = styled.h2`
   font-size: 30px;
 `
 
