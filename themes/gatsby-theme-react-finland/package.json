@@ -4,12 +4,7 @@
   "version": "0.1.1-alpha.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "build": "echo \"Nothing to build here, either!\""
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
