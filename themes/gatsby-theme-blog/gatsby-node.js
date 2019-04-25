@@ -1,15 +1,15 @@
-const { createFilePath } = require('gatsby-source-filesystem');
+const { createFilePath } = require('gatsby-source-filesystem')
 
 const createBlogPostNode = (node, api) => {
   const slug = createFilePath({
     node: node,
     getNode: api.getNode,
     basePath: `blog`,
-  });
+  })
   const blogPost = Object.assign({}, node.frontmatter, {
     slug: `/blog${slug}`,
-  });
-  const id = api.createContentDigest(blogPost);
+  })
+  const id = api.createContentDigest(blogPost)
   api.actions.createNode({
     id,
     parent: node.id,
@@ -18,35 +18,35 @@ const createBlogPostNode = (node, api) => {
       contentDigest: id,
     },
     ...blogPost,
-  });
-};
+  })
+}
 
 const adapters = {
   md(node, actions) {
     if (node.internal.type === `MarkdownRemark`) {
-      return createBlogPostNode(node, actions);
+      return createBlogPostNode(node, actions)
     }
   },
   markdown(...rest) {
-    return this.md(...rest);
+    return this.md(...rest)
   },
   mdx(node, actions) {
     if (node.internal.type === `Mdx`) {
-      return createBlogPostNode(node, actions);
+      return createBlogPostNode(node, actions)
     }
   },
-};
+}
 
 const typeLookup = {
   mdx: `Mdx`,
   markdown: `MarkdownRemark`,
   md: `MarkdownRemark`,
-};
+}
 
 exports.sourceNodes = ({ actions }, { adapter }) => {
-  const { createTypes } = actions;
+  const { createTypes } = actions
 
-  const type = typeLookup[adapter];
+  const type = typeLookup[adapter]
 
   createTypes(`
     type BlogPost implements Node {
@@ -57,17 +57,17 @@ exports.sourceNodes = ({ actions }, { adapter }) => {
 
       body: ${type}!
     }
-  `);
-};
+  `)
+}
 
 exports.onCreateNode = function(api, { adapter: blogPostAdapter }) {
-  const adapter = adapters[blogPostAdapter];
+  const adapter = adapters[blogPostAdapter]
 
-  return adapter(api.node, api);
-};
+  return adapter(api.node, api)
+}
 
 exports.createResolvers = function({ createResolvers }, { adapter }) {
-  const type = typeLookup[adapter];
+  const type = typeLookup[adapter]
   createResolvers({
     BlogPost: {
       type: `${type}!`,
@@ -76,12 +76,12 @@ exports.createResolvers = function({ createResolvers }, { adapter }) {
           return context.nodeModel.getNodeById({
             id: source.parent,
             type,
-          });
+          })
         },
       },
     },
-  });
-};
+  })
+}
 
 exports.createPages = async function createPages({ actions, graphql }) {
   const { data, errors } = await graphql(`
@@ -92,13 +92,13 @@ exports.createPages = async function createPages({ actions, graphql }) {
         }
       }
     }
-  `);
+  `)
 
   if (errors) {
-    throw errors;
+    throw errors
   }
 
-  const blogPostTemplate = require.resolve(`./src/templates/blog-post.js`);
+  const blogPostTemplate = require.resolve(`./src/templates/blog-post.js`)
 
   data.allBlogPost.nodes.map(node => {
     actions.createPage({
@@ -107,6 +107,6 @@ exports.createPages = async function createPages({ actions, graphql }) {
       context: {
         slug: node.slug,
       },
-    });
-  });
-};
+    })
+  })
+}

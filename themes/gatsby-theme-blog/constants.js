@@ -1,1 +1,1 @@
-exports.sourceInstanceName = `blogContent`;
+exports.sourceInstanceName = `blogContent`

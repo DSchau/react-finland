@@ -1,7 +1,7 @@
-const path = require('path');
-const yup = require('yup');
+const path = require('path')
+const yup = require('yup')
 
-const { sourceInstanceName } = require('./constants');
+const { sourceInstanceName } = require('./constants')
 
 const pluginOptions = yup.object().shape({
   adapter: yup
@@ -11,7 +11,7 @@ const pluginOptions = yup.object().shape({
     .required(),
   root: yup.string(),
   contentDirectory: yup.string().required(),
-});
+})
 
 const adapters = {
   md() {
@@ -26,10 +26,10 @@ const adapters = {
           ],
         },
       },
-    ];
+    ]
   },
   markdown() {
-    return this.md();
+    return this.md()
   },
   mdx() {
     return [
@@ -37,16 +37,16 @@ const adapters = {
         resolve: `gatsby-mdx`,
         options: {},
       },
-    ];
+    ]
   },
-};
+}
 
 module.exports = function gatsbyConfig(opts) {
   const { adapter: blogAdapter, contentDirectory } = pluginOptions.validateSync(
     opts
-  );
+  )
 
-  const adapter = adapters[blogAdapter];
+  const adapter = adapters[blogAdapter]
 
   return {
     siteMetadata: {},
@@ -71,5 +71,5 @@ module.exports = function gatsbyConfig(opts) {
         },
       },
     ].concat(adapter()),
-  };
-};
+  }
+}

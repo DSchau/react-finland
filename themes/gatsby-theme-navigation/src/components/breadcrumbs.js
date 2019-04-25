@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby'
 
 const Link = ({ to, children, ...rest }) => {
   if (to.match(/^https?/)) {
@@ -7,14 +7,14 @@ const Link = ({ to, children, ...rest }) => {
       <a href={to} {...rest}>
         {children}
       </a>
-    );
+    )
   }
   return (
     <GatsbyLink to={to} {...rest}>
       {children}
     </GatsbyLink>
-  );
-};
+  )
+}
 
 // TODO: fix
 function Breadcrumbs({ className }) {
@@ -33,7 +33,7 @@ function Breadcrumbs({ className }) {
         }
       }
     }
-  `);
+  `)
   return (
     <ul
       className={className}
@@ -54,7 +54,7 @@ function Breadcrumbs({ className }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
-export default Breadcrumbs;
+export default Breadcrumbs

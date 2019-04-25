@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import BlogPost from '../components/blog-post';
+import BlogPost from '../components/blog-post'
 
 export default function BlogPostTemplate({ data }) {
-  return <BlogPost {...data.blogPost} />;
+  return <BlogPost {...data.blogPost} />
 }
 
 export const blogPostQuery = graphql`
@@ -17,4 +17,4 @@ export const blogPostQuery = graphql`
       }
     }
   }
-`;
+`

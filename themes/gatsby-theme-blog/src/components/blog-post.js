@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-okaidia.css'
 
 export default function BlogPost({ author, title, body }) {
   return (
@@ -9,5 +9,5 @@ export default function BlogPost({ author, title, body }) {
       <h2>{author}</h2>
       <div dangerouslySetInnerHTML={{ __html: body.html }} />
     </React.Fragment>
-  );
+  )
 }

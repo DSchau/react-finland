@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import BlogPostPreview from './blog-post-preview';
+import BlogPostPreview from './blog-post-preview'
 
 export default function BlogPostListing({ posts }) {
   return (
@@ -9,5 +9,5 @@ export default function BlogPostListing({ posts }) {
         <BlogPostPreview key={post.title} {...post} />
       ))}
     </React.Fragment>
-  );
+  )
 }

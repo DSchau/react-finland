@@ -1,4 +1,4 @@
-const yup = require('yup');
+const yup = require('yup')
 
 const pluginOptions = yup.object().shape({
   appId: yup.string().required(),
@@ -11,11 +11,11 @@ const pluginOptions = yup.object().shape({
     .of(yup.string())
     .min(1)
     .required(),
-});
+})
 
 module.exports = async function gatsbyConfig(opts) {
-  opts.queries = opts.queries || [].concat(opts.query);
-  const options = await pluginOptions.validate(opts);
+  opts.queries = opts.queries || [].concat(opts.query)
+  const options = await pluginOptions.validate(opts)
   return {
     plugins: [
       {
@@ -29,5 +29,5 @@ module.exports = async function gatsbyConfig(opts) {
         },
       },
     ],
-  };
-};
+  }
+}

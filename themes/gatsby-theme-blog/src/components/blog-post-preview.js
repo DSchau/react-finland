@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React from 'react'
+import { Link } from 'gatsby'
 
 export default function BlogPostPreview({ title, slug, body }) {
   return (
@@ -9,5 +9,5 @@ export default function BlogPostPreview({ title, slug, body }) {
       </Link>
       <div dangerouslySetInnerHTML={{ __html: body.excerpt }} />
     </section>
-  );
+  )
 }
